@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Quicksand', Courier, monospace;
+    font-weight: 200;
+}
+
+h1{
+    text-align: center;
+    color: rgb(218, 165, 32);
+}
+
+hr{
+    position: relative;
+            top: 35px;
+            border: none;
+            height: 0.1px;
+            background: rgba(36, 36, 36, 0.162);
+            margin-bottom: 50px;
+}
+
+#insta{
+    text-align: center;
+    text-align: top;
+}
