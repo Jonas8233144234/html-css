@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Viagem</title>
+    <script>
+        // Função para calcular o valor da viagem
+        function calcularValorViagem() {
+            // Captura os valores do formulário
+            let custoetanol = parseFloat(document.getElementById("custoetanol").value);
+            let custogasolina = parseFloat(document.getElementById("custogasolina").value);
+            let combustivelescolhido = document.getElementById("combustivelescolhido").value;
+            let eficienciadocarro = parseFloat(document.getElementById("eficienciadocarro").value);
+            let totalkm = parseFloat(document.getElementById("totalkm").value);
+
+            // Verificar o tipo de combustível escolhido
+            let custocombustivel;
+            if (combustivelescolhido === "gasolina") {
+                custocombustivel = custogasolina;
+            } else if (combustivelescolhido === "etanol") {
+                custocombustivel = custoetanol;
+            } else {
+                alert("Tipo de combustível inválido!");
+                return; // Encerra a função se o combustível for inválido
+            }
+
+            // Cálculo do valor total da viagem
+            let valortotaldaviagem = (totalkm / eficienciadocarro) * custocombustivel;
+
+            // Exibir o valor total
+            document.getElementById("resultado").innerHTML = "O valor gasto na viagem será: R$ " + valortotaldaviagem.toFixed(2);
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Jonas Santos - 2DSB</p>
+
+    <form onsubmit="event.preventDefault(); calcularValorViagem();">
+        <h1 id="h1">Cálculo de Viagem</h1>
+        <label for="custoetanol">Preço do Etanol (R$/litro):</label>
+        <input type="number" id="custoetanol" required>
+        <br><br>
+
+        <label for="custogasolina">Preço da Gasolina (R$/litro):</label>
+        <input type="number" id="custogasolina" required>
+        <br><br>
+
+        <label for="combustivelescolhido">Combustível Escolhido:</label>
+        <select id="combustivelescolhido" required>
+            <option value="gasolina">Gasolina</option>
+            <option value="etanol">Etanol</option>
+        </select>
+        <br><br>
+
+        <label for="eficienciadocarro">Eficiência do Carro (km/litro):</label>
+        <input type="number" id="eficienciadocarro" required>
+        <br><br>
+
+        <label for="totalkm">Distância da Viagem (km):</label>
+        <input type="number" id="totalkm" required>
+        <br><br>
+
+        <button type="submit">Calcular</button>
+
+        <h2 id="resultado"></h2>
+    </form>
+
+</body>
+</html>
